@@ -16,8 +16,6 @@ Portfolio.prototype.toHtml = function() {
     $newPortfolio.addClass('draft');
   }
   $newPortfolio.attr('data-category', this.category);
-  // TODO: Use jQuery to also add the project name as a data-attribute of the newly cloned projects.
-  //       Doing so will allow us to use selectors to target articles, based on who wrote them.
   $newPortfolio.attr('data-project', this.project);
 
   $newPortfolio.find('.byline a').html(this.project);
@@ -41,4 +39,12 @@ rawData.forEach(function(ele) {
 
 tabContent.forEach(function(a){
   $('#projects').append(a.toHtml())
+});
+
+tabContent.forEach(function(a){
+  $('#school').append(a.toHtml())
+});
+
+tabContent.forEach(function(a){
+  $('#work').append(a.toHtml())
 });

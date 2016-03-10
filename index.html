@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8">
     <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, intitial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="vendors/css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/modules.css">
+    <!-- <link rel="stylesheet" href="vendors/css/reset.css" -->
+
+    <script id="projects-template" type="text/x-handlebars-template">
+      <article class="clearfix"  data-category="{{category}}" data-author="{{author}}">
+         <header>
+           <h1>{{title}}</h1>
+           <div class="byline">
+
+           </div>
+         </header>
+         <section class="project-body">{{{body}}}</section>
+         <a href="#" class="read-on">Read on &rarr;</a>
+       </article>
+    </script>
   </head>
 
   <body>
@@ -49,8 +63,6 @@
           <header>
             <h1 class="categories">Projects</h1>
             <div class="byline">
-              <h2>Drinking with a Cold One</h2>
-              <h2>Authors Website</h2>
             </div>
           </header>
           <section class="project-body"></section>
@@ -86,6 +98,10 @@
             <li>Managing Communities</li>
           </ul>
         </section>
+        <section id="img">
+          <img src="assets/city.jpg"/>
+          <img src="assets/city2.jpg"/>
+        </section>
       </section>
     </main>
 
@@ -94,6 +110,7 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
     <script src="js/object.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/tabSlide.js"></script>

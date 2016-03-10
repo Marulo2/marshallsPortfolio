@@ -1,3 +1,18 @@
 body {
-  background-color: lightblue;
+  background-image: url('../assets/winter-2011.png');
+}
+
+* {
+  font-family: Oswald;
+  text-decoration: none;
+}
+
+li {
+  font-size: 1vw;
+}
+
+
+nav {
+  margin: -1vw;
+  border: 2px solid black;
 }

@@ -1,4 +1,6 @@
-var tabContent = [];
+var projectContent = [];
+var schoolContent = [];
+var workContent = [];
 
 function Portfolio (opts) {
   this.project = opts.project;
@@ -24,10 +26,10 @@ projectData.sort(function(a,b) {
 });
 
 projectData.forEach(function(ele) {
-  tabContent.push(new Portfolio(ele));
+  projectContent.push(new Portfolio(ele));
 })
 
-tabContent.forEach(function(a){
+projectContent.forEach(function(a){
   $('#projects').append(a.toHtml())
 });
 
@@ -36,10 +38,10 @@ schoolData.sort(function(a,b) {
 });
 
 schoolData.forEach(function(ele) {
-  tabContent.push(new Portfolio(ele));
+  schoolContent.push(new Portfolio(ele));
 })
 
-tabContent.forEach(function(a){
+schoolContent.forEach(function(a){
   $('#school').append(a.toHtml())
 });
 
@@ -48,9 +50,9 @@ workData.sort(function(a,b) {
 });
 
 workData.forEach(function(ele) {
-  tabContent.push(new Portfolio(ele));
+  workContent.push(new Portfolio(ele));
 })
 
-tabContent.forEach(function(a){
+workContent.forEach(function(a){
   $('#work').append(a.toHtml())
 });

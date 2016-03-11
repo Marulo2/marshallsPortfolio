@@ -22,6 +22,20 @@
          <a href="#" class="read-on">Read on &rarr;</a>
        </article>
     </script>
+
+    <script id="about-template" type="text/x-handlebars-template">
+      <article class="clearfix"  data-category="{{category}}" data-author="{{author}}">
+         <header>
+           <h1>{{title}}</h1>
+           <div class="byline">
+
+           </div>
+         </header>
+         <section class="project-body">{{{body}}}</section>
+         <a href="#" class="read-on">Read on &rarr;</a>
+       </article>
+    </script>
+
   </head>
 
   <body>
@@ -48,10 +62,6 @@
           <header>
             <h1 class="categories">Schooling</h1>
             <div class="byline">
-              <h2>Garfield Highschool</h2>
-              <h2>Seattle Central College</h2>
-              <h2>La Universidad de Guanajuato</h2>
-              <h2>CodeFellows</h2>
             </div>
           </header>
           <section class="project-body"></section>

@@ -26,13 +26,12 @@ h2 {
 }
 
 img {
-  height: 400px;
-  width: 600px;
   border: 1px solid black;
   border-radius: 5vw;
+  margin: 1em auto;
+  height: 25rem;
+  width: 90%;
 }
-
-
 
 li {
   font-size: 5vw;
@@ -43,11 +42,11 @@ li {
 }*/
 
 
-@media only screen and (min-width: 800px){
-
+@media only screen and (min-width: 800px) {
   li {
     font-size: 1vw;
   }
+
   h1 {
     display: flex;
     justify-content: center;
@@ -59,24 +58,25 @@ li {
     font-size: 1.25vw;
   }
 
-.main-nav ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 0;
-  list-style: none;
-  clear: both;
-}
+  .main-nav ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+      list-style: none;
+      clear: both;
+  }
 
-#img {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
+  #img {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  }
 
-img {
-  height: 30vw;
-  width: 45vw;
-  border: 1px solid black;
-  border-radius: 5vw;
+  img {
+      height: 30vw;
+      width: 45vw;
+      border: 1px solid black;
+      border-radius: 5vw;
+  }
 }

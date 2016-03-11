@@ -19,7 +19,7 @@ var projectData = [
 
 var schoolData = [
   {
-    title:       'CodeFellows Final',
+    title:       'CodeFellows',
     category:    'Group Project',
     project:      'Drink with a Cold One',
     projectUrl:   '404',

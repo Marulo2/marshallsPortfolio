@@ -1,6 +1,3 @@
-var projectContent = [];
-var schoolContent = [];
-var workContent = [];
 
 function Portfolio (opts) {
   this.project = opts.project;
@@ -11,6 +8,10 @@ function Portfolio (opts) {
   this.publishedOn = opts.publishedOn;
 }
 
+Portfolio.projectContent = [];
+Portfolio.schoolContent = [];
+Portfolio.workContent = [];
+
 Portfolio.prototype.toHtml = function() {
   var source = $('#projects-template').html()
   var template = Handlebars.compile(source);
@@ -18,41 +19,66 @@ Portfolio.prototype.toHtml = function() {
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
   this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
+
   return template(this);
 }
 
-projectData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+Portfolio.fetchAll = function() {
+  if (localStorage.projectData) {
+    console.log('test1')
+    Portfolio.loadAll(localStorage.projectData);
+    tabSlide.initIndexPage();
+  } else {
+    console.log('test2')
+    $.getJSON('data/JSON.json', function(projectData) {
+      console.log(projectData);
+      localStorage.projectData = projectData;
+      Portfolio.loadAll(projectData);
+      tabSlide.initIndexPage();
+    }).error(function(e) { console.log(e); })
+  }
+}
 
-projectData.forEach(function(ele) {
-  projectContent.push(new Portfolio(ele));
-})
+Portfolio.loadAll = function(projectData) {
+  projectData.sort(function(a, b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  });
 
-projectContent.forEach(function(a){
-  $('#projects').append(a.toHtml())
-});
+  projectData.forEach(function(ele) {
+    Portfolio.projectContent.push(new Portfolio(ele));
+  });
 
-schoolData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+  // schoolData.sort(function(a,b) {
+  //   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  // });
+  //
+  // schoolData.forEach(function(ele) {
+  //   Portfolio.schoolContent.push(new Portfolio(ele));
+  // })
 
-schoolData.forEach(function(ele) {
-  schoolContent.push(new Portfolio(ele));
-})
+  // workData.sort(function(a,b) {
+  //   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  // });
+  //
+  // workData.forEach(function(ele) {
+  //   Portfolio.workContent.push(new Portfolio(ele));
+  // });
 
-schoolContent.forEach(function(a){
-  $('#school').append(a.toHtml())
-});
+  Portfolio.projectContent.forEach(function(a){
+    $('#projects').append(a.toHtml())
+  });
 
-workData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+  Portfolio.schoolContent.forEach(function(a){
+    $('#school').append(a.toHtml())
+  });
 
-workData.forEach(function(ele) {
-  workContent.push(new Portfolio(ele));
-})
+  Portfolio.workContent.forEach(function(a){
+    $('#work').append(a.toHtml())
+  });
+  console.log('test3')
+};
 
-workContent.forEach(function(a){
-  $('#work').append(a.toHtml())
+$(document).ready(function() {
+  Portfolio.fetchAll();
+  Portfolio.loadAll(Portfolio.projectContent);
 });

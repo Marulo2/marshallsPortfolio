@@ -71,9 +71,9 @@
       return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
     });
 
-    data.forEach(function(ele) {
-      Portfolio.projArray.push(new Portfolio(ele));
-    });
+    Portfolio.projArray = data.map(function(ele) {
+      return new Portfolio(ele);
+    })
   };
 
   Portfolio.loadSchool = function(data) {
@@ -81,9 +81,9 @@
       return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
     });
 
-    data.forEach(function(ele) {
-      Portfolio.schoolArray.push(new Portfolio(ele));
-    });
+    Portfolio.schoolArray = data.map(function(ele) {
+      return new Portfolio(ele);
+    })
   };
 
   Portfolio.loadWork = function(data) {
@@ -91,9 +91,9 @@
       return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
     });
 
-    data.forEach(function(ele) {
-      Portfolio.workArray.push(new Portfolio(ele));
-    });
+    Portfolio.workArray = data.map(function(ele) {
+      return new Portfolio(ele);
+    })
   };
 
   module.Portfolio = Portfolio;

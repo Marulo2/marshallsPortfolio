@@ -23,11 +23,9 @@ Portfolio.prototype.toHtml = function() {
 
 Portfolio.fetchAll = function() {
   if (localStorage.projectData) {
-    console.log('test1');
     Portfolio.loadAll(JSON.parse(localStorage.projectData));
     tabSlide.initIndexPage();
   } else {
-    console.log('test2');
     $.getJSON('/data/JSON.json', function(projectData){
       console.log(projectData);
       Portfolio.loadAll(projectData);
@@ -37,6 +35,28 @@ Portfolio.fetchAll = function() {
   }
 }
 
+// Portfolio.fetchAll = function() {
+//   if (localStorage.projectData) {
+//     $.ajax({
+//       type: 'HEAD',
+//       url: '/data/JSON.json',
+//       success: function(data, message, xhr) {
+//         console.log(xhr);
+//         var eTag = xhr.getResponseHeader('eTag');
+//         if (!localStorage.eTag || eTag !== localStorage.eTag) {
+//           localStorage.eTag = eTag;
+//           Portfolio.getAll();
+//         } else {
+//           Portfolio.loadAll(JSON.parse(localStorage.projectData));
+//           tabSlide.initIndexPage();
+//         }
+//       }
+//     });
+//   } else {
+//     Portfolio.getAll();
+//   }
+// };
+
 Portfolio.loadAll = function(projectData) {
   projectData.sort(function(a, b) {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
@@ -45,10 +65,6 @@ Portfolio.loadAll = function(projectData) {
   projectData.forEach(function(ele) {
     Portfolio.all.push(new Portfolio(ele));
   });
-
-  // Portfolio.projectContent.forEach(function(a){
-  //   $('#projects').append(a.toHtml())
-  // });
 
   console.log('test3')
 };

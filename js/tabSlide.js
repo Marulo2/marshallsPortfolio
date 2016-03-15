@@ -30,6 +30,8 @@ tabSlide.handleMainNav = function() {
 tabSlide.initIndexPage = function() {
   Portfolio.all.forEach(function(a){
     $('#projects').append(a.toHtml())
+    $('#work').append(a.toHtml())
+    $('#school').append(a.toHtml())
   });
 
   tabSlide.populateTab();

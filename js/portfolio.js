@@ -8,9 +8,7 @@ function Portfolio (opts) {
   this.publishedOn = opts.publishedOn;
 }
 
-Portfolio.projectContent = [];
-Portfolio.schoolContent = [];
-Portfolio.workContent = [];
+Portfolio.all = [];
 
 Portfolio.prototype.toHtml = function() {
   var source = $('#projects-template').html()
@@ -25,17 +23,17 @@ Portfolio.prototype.toHtml = function() {
 
 Portfolio.fetchAll = function() {
   if (localStorage.projectData) {
-    console.log('test1')
-    Portfolio.loadAll(localStorage.projectData);
+    console.log('test1');
+    Portfolio.loadAll(JSON.parse(localStorage.projectData));
     tabSlide.initIndexPage();
   } else {
-    console.log('test2')
-    $.getJSON('data/JSON.json', function(projectData) {
+    console.log('test2');
+    $.getJSON('/data/JSON.json', function(projectData){
       console.log(projectData);
-      localStorage.projectData = projectData;
       Portfolio.loadAll(projectData);
+      localStorage.projectData = JSON.stringify(projectData);
       tabSlide.initIndexPage();
-    }).error(function(e) { console.log(e); })
+    })
   }
 }
 
@@ -45,40 +43,12 @@ Portfolio.loadAll = function(projectData) {
   });
 
   projectData.forEach(function(ele) {
-    Portfolio.projectContent.push(new Portfolio(ele));
+    Portfolio.all.push(new Portfolio(ele));
   });
 
-  // schoolData.sort(function(a,b) {
-  //   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-  // });
-  //
-  // schoolData.forEach(function(ele) {
-  //   Portfolio.schoolContent.push(new Portfolio(ele));
-  // })
-
-  // workData.sort(function(a,b) {
-  //   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-  // });
-  //
-  // workData.forEach(function(ele) {
-  //   Portfolio.workContent.push(new Portfolio(ele));
+  // Portfolio.projectContent.forEach(function(a){
+  //   $('#projects').append(a.toHtml())
   // });
 
-  Portfolio.projectContent.forEach(function(a){
-    $('#projects').append(a.toHtml())
-  });
-
-  Portfolio.schoolContent.forEach(function(a){
-    $('#school').append(a.toHtml())
-  });
-
-  Portfolio.workContent.forEach(function(a){
-    $('#work').append(a.toHtml())
-  });
   console.log('test3')
 };
-
-$(document).ready(function() {
-  Portfolio.fetchAll();
-  Portfolio.loadAll(Portfolio.projectContent);
-});

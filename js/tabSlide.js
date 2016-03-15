@@ -26,7 +26,12 @@ tabSlide.handleMainNav = function() {
   $('.main-nav .tab:first').click();
 };
 
-$(document).ready(function() {
+
+tabSlide.initIndexPage = function() {
+  Portfolio.all.forEach(function(a){
+    $('#projects').append(a.toHtml())
+  });
+
   tabSlide.populateTab();
   tabSlide.handleMainNav();
-});
+};

@@ -30,17 +30,24 @@
     $('.main-nav .tab:first').click();
   };
 
-
-  tabSlide.initIndexPage = function() {
-    Portfolio.all.forEach(function(a){
+  tabSlide.initProjects = function() {
+    Portfolio.projArray.forEach(function(a){
       $('#projects').append(a.toHtml())
-      $('#work').append(a.toHtml())
-      $('#school').append(a.toHtml())
     });
-
     tabSlide.populateTab();
     tabSlide.handleMainNav();
-  };
-  
+  }
+
+  tabSlide.initSchool = function() {
+    Portfolio.schoolArray.forEach(function(a){
+      $('#school').append(a.toHtml())
+    });
+  }
+
+  tabSlide.initWork = function() {
+    Portfolio.workArray.forEach(function(a){
+      $('#work').append(a.toHtml())
+    });
+  }
   module.tabSlide = tabSlide;
 })(window);

@@ -1,0 +1,37 @@
+[
+  {
+    "title":       "Garfield Highschool",
+    "category":    "Group Project",
+    "project":      "Drink with a Cold One",
+    "projectUrl":   "404",
+    "publishedOn": "Never ever",
+    "body":        "<p>Filler space</p>"
+  },
+
+  {
+    "title":       "Seattle Central College",
+    "category":    "Solo Project",
+    "project":      "Dad\"s Site",
+    "projectUrl":   "404",
+    "publishedOn": "Never ever ever",
+    "body":        "<p>Filler space</p>"
+  },
+
+  {
+    "title":       "La Universidad de Guanajuato",
+    "category":    "Solo Project",
+    "project":      "Dad\"s Site",
+    "projectUrl":   "404",
+    "publishedOn": "Never ever ever",
+    "body":        "<p>Filler space</p>"
+  },
+
+  {
+    "title":       "CodeFellows",
+    "category":    "Solo Project",
+    "project":      "Dad\"s Site",
+    "projectUrl":   "404",
+    "publishedOn": "Never ever ever",
+    "body":        "<p>Filler space</p>"
+  }
+]

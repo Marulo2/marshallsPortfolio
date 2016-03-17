@@ -12,6 +12,14 @@
   Portfolio.schoolArray = [];
   Portfolio.workArray = [];
 
+  Portfolio.prototype = function() {
+
+
+    
+
+
+  }
+
   Portfolio.prototype.toHtml = function() {
     var source = $('#projects-template').html()
     var template = Handlebars.compile(source);

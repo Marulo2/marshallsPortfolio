@@ -17,30 +17,31 @@
     return template(this);
   }
 
-  function fetchContent(localStorageId, jsonPath, callback) {
+  function fetchContent(localStorageId, jsonPath, loadContent, callback) {
     if (localStorage[localStorageId]) {
-      Portfolio.loadProjects(JSON.parse(localStorage[localStorageId]));
+      loadContent(JSON.parse(localStorage[localStorageId]));
       callback();
     } else {
       $.getJSON(jsonPath, function(data){
         console.log(data);
-        Portfolio.loadProjects(data);
+        loadContent(data);
         localStorage[localStorageId] = JSON.stringify(data);
         callback();
       })
     }
   };
 
-  Portfolio.fetchProjects = function(callback) {
-    fetchContent('projectData', 'data/JSON.json', callback);
+  Portfolio.fetchSchool = function(callback) {
+    fetchContent('schoolData', 'data/school.json', Portfolio.loadSchool, callback);
   }
 
-  Portfolio.fetchSchool = function(callback) {
-    fetchContent('schoolData', 'data/school.json', callback);
+  Portfolio.fetchProjects = function(callback) {
+    fetchContent('projectData', 'data/JSON.json', Portfolio.loadProjects, callback);
   }
+
 
   Portfolio.fetchWork = function(callback) {
-    fetchContent('workData', 'data/work.json', callback);
+    fetchContent('workData', 'data/work.json', Portfolio.loadWork, callback);
   }
 
   Portfolio.loadProjects = function(data) {

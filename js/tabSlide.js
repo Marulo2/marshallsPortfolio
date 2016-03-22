@@ -23,6 +23,10 @@
       $('#projects').append(a.toHtml())
     });
     tabSlide.populateTab();
+
+    $(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
   }
 
   tabSlide.initSchool = function() {

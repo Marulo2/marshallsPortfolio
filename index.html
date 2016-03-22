@@ -4,24 +4,36 @@
     <title>Portfolio</title>
     <meta name="viewport" content="width=device-width, intitial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="vendors/css/jquery.bxslider.css">
     <link rel="stylesheet" href="vendors/css/normalize.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/modules.css">
-    <!-- <link rel="stylesheet" href="vendors/css/reset.css" -->
 
     <script id="projects-template" type="text/x-handlebars-template">
       <article class="clearfix"  data-category="{{category}}" data-author="{{author}}">
          <header>
-           <h1>{{title}}</h1>
-           <div class="byline">
-
-           </div>
+             <h1>{{title}}</h1>
+             <div class="byline">
+             </div>
          </header>
          <section class="project-body">{{{body}}}</section>
        </article>
     </script>
   </head>
+
+  <script id="repo-template" type="text/x-handlebars-template">
+    <li>
+      <a href="{{html_url}}" target="_blank"><h2>{{name}}</h2></a>
+      <p>Description: {{description}}</p>
+      <p>Language: {{language}}</p>
+      <p>Created: {{created_at}}</p>
+      <p>Last updated: {{updated_at}}</p>
+      {{#if watchers_count}}
+        <p>{{watchers_count}} watching this repo</p>
+      {{/if}}
+    </li>
+  </script>
 
   <body>
     <header class="site-header">
@@ -32,7 +44,7 @@
 
     <nav class="main-nav">
       <ul>
-        <li class="tab" data-content="about"><a href="about">About Me</a></li>
+        <li class="tab" data-content="about"><a href="/">About Me</a></li>
         <li class="tab" data-content="school"><a href="school">School</a></li>
         <li class="tab" data-content="projects"><a href="project">Projects</a></li>
         <li class="tab" data-content="work"><a href="work">Work</a></li>
@@ -54,12 +66,16 @@
         </article>
       </section>
 
-      <section id="projects" class="tab-content">
+      <section id="repos" class="tab-content">
         <article class="template" data-category="cat">
           <header>
             <h1 class="categories">Projects</h1>
             <div class="byline">
             </div>
+
+            <ul>
+
+            </ul>
           </header>
           <section class="project-body"></section>
         </article>
@@ -91,10 +107,10 @@
             <li>Managing Communities</li>
           </ul>
         </section>
-        <section id="img">
-          <img src="assets/city.jpg"/>
-          <img src="assets/city2.jpg"/>
-        </section>
+        <ul class="bxslider">
+          <li><img src="assets/city2.jpg"/></li>
+          <li><img src="assets/city.jpg"/></li>
+        </ul>
       </section>
     </main>
 
@@ -102,16 +118,20 @@
       by Marshall Miller
     </footer>
 
-    <script src="vendors/js/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script src="vendors/js/jquery.bxslider.js"></script>
+    <script src="vendors/js/page.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/tabSlide.js"></script>
     <script src="js/aboutController.js"></script>
     <script src="js/schoolController.js"></script>
     <script src="js/workController.js"></script>
+    <script src="js/githubToken.js"></script>
+    <script src="js/repoView.js"></script>
+    <script src="js/repo.js"></script>
     <script src="js/projectController.js"></script>
     <script src="js/routes.js"></script>
-    <script src="js/tabSlide.js"></script>
-    <script src="js/portfolio.js"></script>
     <script>
       Portfolio.fetchProjects(tabSlide.initProjects);
       Portfolio.fetchSchool(tabSlide.initSchool);

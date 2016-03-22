@@ -4,15 +4,15 @@
 
   var tabSlide = {};
 
-  tabSlide.funFacts = function() {
-    return Portfolio.projArray.map(function(portfolio){
-      return portfolio.title.length;
-    })
-    .reduce(function(a,b){
-      return a+b;
-    })
-    $('footer').append('<p>I have ' + funFacts() + ' projects!</p>') //not sure how to grab the number of projects I have needs more work
-  }
+  // tabSlide.funFacts = function() {
+  //   return Portfolio.projArray.map(function(portfolio){
+  //     return portfolio.title.length;
+  //   })
+  //   .reduce(function(a,b){
+  //     return a+b;
+  //   })
+  //   $('footer').append('<p>I have ' + funFacts() + ' projects!</p>') //not sure how to grab the number of projects I have needs more work
+  // }, []);
 
   tabSlide.populateTab = function() {
     $('projects').each(function() {
@@ -46,7 +46,7 @@
     });
     tabSlide.populateTab();
     tabSlide.handleMainNav();
-    tabSlide.funFacts();
+    // tabSlide.funFacts()
   }
 
   tabSlide.initSchool = function() {

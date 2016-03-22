@@ -32,10 +32,10 @@
 
     <nav class="main-nav">
       <ul>
-        <li class="tab" data-content="about"><a href="#">About Me</a></li>
-        <li class="tab" data-content="school"><a href="#">School</a></li>
-        <li class="tab" data-content="projects"><a href="#">Projects</a></li>
-        <li class="tab" data-content="work"><a href="#">Work</a></li>
+        <li class="tab" data-content="about"><a href="about">About Me</a></li>
+        <li class="tab" data-content="school"><a href="school">School</a></li>
+        <li class="tab" data-content="projects"><a href="project">Projects</a></li>
+        <li class="tab" data-content="work"><a href="work">Work</a></li>
         <li><a href="http://twitter.com" target="_blank">Twitter</a></li>
         <li><a href="https://github.com/Marulo2" target="_blank">GitHub</a></li>
       </ul>
@@ -102,14 +102,20 @@
       by Marshall Miller
     </footer>
 
+    <script src="vendors/js/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+    <script src="js/aboutController.js"></script>
+    <script src="js/schoolController.js"></script>
+    <script src="js/workController.js"></script>
+    <script src="js/projectController.js"></script>
+    <script src="js/routes.js"></script>
     <script src="js/tabSlide.js"></script>
     <script src="js/portfolio.js"></script>
     <script>
       Portfolio.fetchProjects(tabSlide.initProjects);
       Portfolio.fetchSchool(tabSlide.initSchool);
       Portfolio.fetchWork(tabSlide.initWork);
-    ;</script>
+    </script>
   </body>
 </html>

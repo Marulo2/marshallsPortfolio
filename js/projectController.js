@@ -4,6 +4,8 @@
   projectController.index = function() {
     $('.tab-content').hide();
     $('#projects').fadeIn();
+
+    repos.requestRepos(repoView.index);
   };
 
   module.projectController = projectController;

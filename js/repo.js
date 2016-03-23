@@ -3,11 +3,10 @@
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    $.get('github/users/marulo2/repos' + '?per_page=5&sort=updated')
-        success: function (data, message, xhr) {
+    $.get('/github/users/marulo2/repos' + '?per_page=5&sort=updated')
+      .done(function (data, message, xhr) {
           repos.all = data;
-        }
-    }).done(callback);
+        }).done(callback);
   };
 
     repos.with = function(attr) {

@@ -18,27 +18,44 @@
     });
   };
 
-  tabSlide.initProjects = function() {
-    Portfolio.projArray.forEach(function(a){
-      $('#projects').append(a.toHtml())
+  function makeInitAll(dataArray, id) {
+    Portfolio[dataArray] = forEach(function(a){
+      $(id).append(a.toHtml())
     });
+
     tabSlide.populateTab();
-
     $(document).ready(function(){
-  $('.bxslider').bxSlider();
-});
-  }
-
-  tabSlide.initSchool = function() {
-    Portfolio.schoolArray.forEach(function(a){
-      $('#school').append(a.toHtml())
+      $('.bxslider').bxSlider();
     });
   }
 
-  tabSlide.initWork = function() {
-    Portfolio.workArray.forEach(function(a){
-      $('#work').append(a.toHtml())
-    });
-  }
+  tabSlide.initSchool = makeInitAll('schoolArray', '#school');
+  tabSlide.initProjects = makeInitAll('projArray', '#projects');
+  tabSlide.initWork = makeInitAll('workArray', '#work');
+
+
+//
+//   tabSlide.initProjects = function() {
+//     Portfolio.projArray.forEach(function(a){
+//       $('#projects').append(a.toHtml())
+//     });
+//     tabSlide.populateTab();
+//
+//     $(document).ready(function(){
+//   $('.bxslider').bxSlider();
+// });
+//   }
+//
+//   tabSlide.initSchool = function() {
+//     Portfolio.schoolArray.forEach(function(a){
+//       $('#school').append(a.toHtml())
+//     });
+//   }
+//
+//   tabSlide.initWork = function() {
+//     Portfolio.workArray.forEach(function(a){
+//       $('#work').append(a.toHtml())
+//     });
+//   }
   module.tabSlide = tabSlide;
 })(window);

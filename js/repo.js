@@ -3,9 +3,7 @@
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    $.ajax({ url: 'https://api.github.com/users/marulo2/repos' + '?per_page=5&sort=updated',
-        type: 'GET',
-        headers: {'Authorization': 'token ' + githubToken},
+    $.get('github/users/marulo2/repos' + '?per_page=5&sort=updated')
         success: function (data, message, xhr) {
           repos.all = data;
         }

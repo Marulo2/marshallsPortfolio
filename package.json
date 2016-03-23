@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "description": "Portfolio yo",
+  "main": "server.js",
+  "dependencies": {
+    "express": "~4.13.4",
+    "express-request-proxy": "~2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marulo2/marshallsPortfolio.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Marulo2/marshallsPortfolio/issues"
+  }
+}
